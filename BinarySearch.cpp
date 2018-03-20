@@ -1,5 +1,5 @@
 /**
-    算法:递归版二分查找
+    算法:迭代版二分查找
     作者:曾荣丽
     时间:2018/3/20
 */
@@ -16,11 +16,14 @@ using namespace std;
 int a[N];
 int BinarySearch(int *a,int n,int low,int high) //a为给定有序数组,n为待搜索数字,low为上界,high为下界
 {
-    int mid=(low+high)/2;
-    if(low>high) return -1;
-    else if(n==a[mid]) return mid;
-    else if(n<a[mid]) return BinarySearch(a,n,low,mid-1);
-    else if(n>a[mid]) return BinarySearch(a,n,mid+1,high);
+    while(low<=high){
+        int mid=(low+high)/2;
+        if(low>high) return -1;
+        if(a[mid]==n) return mid;
+        else if(a[mid]>n) high=mid-1;
+        else if(a[mid]<n) low=mid+1;
+    }
+    return -1;
 }
 
 int main()
