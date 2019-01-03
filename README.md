@@ -1,2 +1,2 @@
 # algorithm
-My algorithm work~
+常用算法
